@@ -1,31 +1,43 @@
 /* HEADER ========================================= */
 header {
-  background: #1bd273;
-  padding: 0.6rem ; /* ver aula no discover sobre essas medidas */
-  text-align:left;
-  color: #ebebeb;
+  background: var(--green);
+  padding: 10px;
+  color: var(--gray);
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   #logo {
-    color: #ebebeb;
+    color: var(--gray);
     font-weight: 700;
-    justify-content: left;
   }
-  
+
   .menu {
-    display: flex;
-    
-    li {
+    width: calc(100% - 300px);
+    max-width: 600px;
+
+    @media (max-width: 779px) {
+      width: calc(100% - 200px);
+      justify-content: space-evenly;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-evenly;
+
       list-style: none;
-      margin-left: 20px;
       padding: 10px;
-  
+
+      font-size: 19px;
+
       a {
         text-decoration: none;
-        color: #ebebeb;
+        color: var(--gray);
+      }
+
+      a:hover {
+        color: var(--text);
       }
     }
   }
