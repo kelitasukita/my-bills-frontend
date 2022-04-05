@@ -1,5 +1,7 @@
 import { Menu } from "./Menu";
 
+import "./headerStyles.scss";
+
 export function Header() {
   return (
     <header>
@@ -8,9 +10,8 @@ export function Header() {
       </div>
       <Menu />
       <div>
-        <h1>login</h1>
+        <h1>Username</h1>
       </div>
-
     </header>
   );
 }

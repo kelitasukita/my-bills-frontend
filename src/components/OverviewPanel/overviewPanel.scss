@@ -1,13 +1,13 @@
 /* BALANCE BOX ====================================*/
 #balance {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   background: #57d3ff;
-  border-radius: 4px;
-  grid-column-start: 1;
-  grid-column-end: 4;
+  border-radius: 6px;
+  // grid-column-start: 1;
+  // grid-column-end: 4;
   margin: 20px 0;
-  padding: 2rem 4rem;
+  padding: 35px 20px;
   align-items: center;
   color: #ebebeb;
 
@@ -16,10 +16,20 @@
     font-weight: 400;
     text-align: center;
   }
-  
+
   p {
     font-size: 1.4rem;
-    font-weight: 400;
+    font-weight: 600;
     text-align: center;
+  }
+
+  @media screen and (max-width: 500px) {
+    h2 {
+      font-size: 1.1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
   }
 }

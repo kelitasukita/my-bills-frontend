@@ -1,5 +1,7 @@
 import { CardsItem } from "./CardsItem";
 
+import "./creditCards.scss";
+
 export function CardBox(props) {
   return (
     <section className="pay-card-boxes">
@@ -11,7 +13,7 @@ export function CardBox(props) {
           <p className="negrito">€ {props.data.factur}</p>
         </div>
       </div>
-      
+
       <div className="container-creditcard">
         <CardsItem />
       </div>
