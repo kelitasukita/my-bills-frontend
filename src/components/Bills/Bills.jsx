@@ -16,10 +16,11 @@ export function Bills(props) {
       .then((apiResponse) => {
         setList(apiResponse.data);
         setTotal(apiResponse.total);
-        if (apiResponse.totalMonth) {
+        setTotalOverdue(apiResponse.totalOverdue);
+
+        if (apiResponse.totalMonth >= 0) {
           setTotalMonth(apiResponse.totalMonth);
         }
-        setTotalOverdue(apiResponse.totalOverdue);
       });
   }, [props.endpoint]);
 
