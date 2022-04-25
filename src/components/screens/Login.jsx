@@ -1,3 +1,5 @@
+import "./../../styles/login.scss";
+
 export function Login() {
   return (
     <div className="main">
