@@ -3,3 +3,4 @@ notes.txt
 dist
 readme.md
 .env
+.DS_Store
