@@ -13,10 +13,11 @@ import { Dashboard } from "./components/screens/Dashboard";
 import { Login } from "./components/screens/Login";
 
 export function App() {
-  const user = true;
+  const user = false;
 
   return (
     <BrowserRouter>
+      {/* Se o usuário for true acesse o Header */}
       {user && <Header />}
 
       <main className="container">
