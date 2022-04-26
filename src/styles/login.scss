@@ -98,7 +98,7 @@
   input,
   button {
     border: 1px solid #ced4da;
-    border-radius: 3px;
+    border-radius: 5px;
 
     max-width: 100%;
     width: 343px;
@@ -109,6 +109,24 @@
   }
 
   button {
+    font-family: Poppins, sans-serif;
+    color: #797979;
     cursor: pointer;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      position: absolute;
+      color: #1a77f2;
+      width: 20px;
+      height: 20px;
+      left: 39px;
+    }
+  }
+
+  .login-button-facebook {
   }
 }

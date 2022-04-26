@@ -1,4 +1,6 @@
 import "./../../styles/login.scss";
+import { FaFacebookF } from "react-icons/fa";
+import { GoogleIcon } from "../../Icons/GoogleIcon";
 
 export function Login() {
   return (
@@ -7,9 +9,15 @@ export function Login() {
       <div className="login">
         <h1>Choose your login</h1>
 
-        <button className="login-button-google">Login with Google</button>
+        <button className="login-button-facebook">
+          <FaFacebookF />
+          Login with Facebook
+        </button>
 
-        <button className="login-button-facebook">Login with Facebook</button>
+        <button className="login-button-google">
+          <GoogleIcon />
+          Login with Google
+        </button>
 
         <span className="separator">
           <div></div>
