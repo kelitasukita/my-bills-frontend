@@ -120,7 +120,6 @@
 
     svg {
       position: absolute;
-      color: #1a77f2;
       width: 20px;
       height: 20px;
       left: 39px;
@@ -128,5 +127,76 @@
   }
 
   .login-button-facebook {
+    svg {
+      color: #1a77f2;
+    }
+
+    span {
+      display: inline-block;
+      z-index: 1;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 100%;
+      left: 0;
+      background: #1a77f2;
+      opacity: 0;
+      z-index: 0;
+
+      transition: all 0.5s;
+    }
+
+    &:hover {
+      color: #ffffff;
+      &:before {
+        left: 0;
+        right: 0;
+        opacity: 1;
+      }
+    }
+  }
+
+  .login-button-google {
+    span {
+      display: inline-block;
+      z-index: 1;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 100%;
+      left: 0;
+      background: #eb4335;
+      opacity: 0;
+      z-index: 0;
+
+      transition: all 0.5s;
+    }
+
+    &:hover {
+      color: #ffffff;
+      &:before {
+        left: 0;
+        right: 0;
+        opacity: 1;
+      }
+
+      svg {
+        display: none;
+      }
+    }
+  }
+
+  .submit {
+    &:hover {
+      background: #0abe61;
+    }
   }
 }

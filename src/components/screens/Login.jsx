@@ -10,13 +10,17 @@ export function Login() {
         <h1>Choose your login</h1>
 
         <button className="login-button-facebook">
-          <FaFacebookF />
-          Login with Facebook
+          <span>
+            <FaFacebookF />
+            Login with Facebook
+          </span>
         </button>
 
         <button className="login-button-google">
-          <GoogleIcon />
-          Login with Google
+          <span>
+            <GoogleIcon />
+            Login with Google
+          </span>
         </button>
 
         <span className="separator">
