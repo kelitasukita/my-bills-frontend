@@ -1,4 +1,5 @@
 import { Menu } from "./Menu";
+import { Logo } from "./Logo/Logo";
 
 import { FaCog, FaSignOutAlt } from "react-icons/fa";
 
@@ -23,9 +24,7 @@ export function Header(props) {
 
   return (
     <header>
-      <div>
-        <h1 id="logo">my.bill$</h1>
-      </div>
+      <Logo />
       <Menu />
       <div>
         <ul className="profile">
