@@ -13,7 +13,7 @@ import { Dashboard } from "./components/screens/Dashboard";
 import { Login } from "./components/screens/Login";
 
 export function App() {
-  const user = false;
+  const user = true;
 
   return (
     <BrowserRouter>
