@@ -39,7 +39,7 @@ export function App() {
   return (
     <BrowserRouter>
       {/* Se o usuário for true acesse o Header */}
-      {user && <Header user={user} />}
+      {user && <Header user={user} updateUser={updateUser} />}
 
       <main className="container">
         <Routes>
