@@ -1,8 +1,8 @@
+import "./headerStyle.scss";
+
 import { Logo } from "./Logo/Logo";
 import { Menu } from "./Menu/Menu";
 import { Profile } from "./Profile/Profile";
-
-import "./headerStyles.scss";
 
 export function Header(props) {
   return (

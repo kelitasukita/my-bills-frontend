@@ -1,3 +1,5 @@
+import "./menu.scss";
+
 import { MenuItem } from "./MenuItem";
 import {
   BsPlusLg,
