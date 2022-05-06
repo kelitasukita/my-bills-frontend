@@ -8,6 +8,7 @@ export function FormExpenses() {
   const { state } = useLocation();
 
   const [description, setDescription] = useState(state?.description ?? "");
+  const [currency, setCurrency] = useState(state?.currency ?? "EUR");
   const [value, setValue] = useState(state?.value ?? 0);
   const [paid, setPaid] = useState(state?.paid ?? false);
   const [dueDate, setDueDate] = useState(state?.dueDate ?? "");
@@ -26,6 +27,7 @@ export function FormExpenses() {
 
     const data = {
       description,
+      currency,
       value,
       paid,
       dueDate,
@@ -67,6 +69,38 @@ export function FormExpenses() {
             onChange={(event) => setDescription(event.target.value)}
             placeholder="Vodafone..."
           />
+        </div>
+        <div className="currency">
+          <label>
+            <input
+              type="radio"
+              name="currency"
+              checked={currency == "EUR"}
+              onChange={(event) => setCurrency(event.target.checked)}
+              value="EUR"
+            />
+            <span> EUR</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="currency"
+              checked={currency == "BRL"}
+              onChange={(event) => setCurrency(event.target.checked)}
+              value="BRL"
+            />
+            <span> BRL</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="currency"
+              checked={currency == "USD"}
+              onChange={(event) => setCurrency(event.target.checked)}
+              value="USD"
+            />
+            <span> USD</span>
+          </label>
         </div>
         <div>
           <label>Value</label>
