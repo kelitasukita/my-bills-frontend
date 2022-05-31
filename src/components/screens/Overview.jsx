@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Bills } from "../Bills/Bills";
-import { CardBox } from "../CreditCards/CardBox";
+import { Earnings } from "../Earnings/earnings";
 import { OverviewPanel } from "../OverviewPanel/OverviewPanel";
 
 export function Overview() {
@@ -8,7 +8,7 @@ export function Overview() {
   const [month, setMonth] = useState(new Date().getMonth());
 
   useEffect(() => {
-    console.log(year, month);
+    //console.log(year, month);
     const today = new Date();
 
     if (today.getDate() < 23) {
@@ -18,6 +18,8 @@ export function Overview() {
         setMonth(12);
         setYear(today.getFullYear() - 1);
       }
+    } else {
+      setMonth(today.getMonth() + 1);
     }
   }, []);
 
@@ -70,6 +72,11 @@ export function Overview() {
           endpoint={`/expenses/paid?year=${year}&month=${month}`}
           title="Paid Bills"
         />
+        <Earnings
+          endpoint={`/earnings?year=${year}&month=${month}`}
+          title="Earnings"
+        />
+
         {/* {cards.map((card, index) => {
           return <CardBox key={index} data={card} />;
         })} */}

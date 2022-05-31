@@ -9,6 +9,7 @@ const clientId =
 
 export function Login(props) {
   const onSuccess = (res) => {
+    console.log("LOGIN SUCCESS! JWT: ", res.tokenId);
     console.log("LOGIN SUCCESS! User: ", res.profileObj);
     props.updateUser(res.profileObj);
   };

@@ -76,7 +76,7 @@ export function FormExpenses() {
               type="radio"
               name="currency"
               checked={currency == "EUR"}
-              onChange={(event) => setCurrency(event.target.checked)}
+              onChange={(event) => setCurrency(event.target.value)}
               value="EUR"
             />
             <span> EUR</span>
@@ -86,7 +86,7 @@ export function FormExpenses() {
               type="radio"
               name="currency"
               checked={currency == "BRL"}
-              onChange={(event) => setCurrency(event.target.checked)}
+              onChange={(event) => setCurrency(event.target.value)}
               value="BRL"
             />
             <span> BRL</span>
@@ -96,7 +96,7 @@ export function FormExpenses() {
               type="radio"
               name="currency"
               checked={currency == "USD"}
-              onChange={(event) => setCurrency(event.target.checked)}
+              onChange={(event) => setCurrency(event.target.value)}
               value="USD"
             />
             <span> USD</span>

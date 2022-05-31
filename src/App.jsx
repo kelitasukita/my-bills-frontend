@@ -24,6 +24,8 @@ export function App() {
       gapi.client.init({
         clientId: clientId,
         scope: "",
+        ux_mode: "redirect",
+        redirect_uri: "http://localhost:3333/login/google",
       });
     }
 
