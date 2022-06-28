@@ -13,7 +13,7 @@ export function FormEarnings() {
   const [valueEarning, setValueEarning] = useState(state?.valueEarning ?? 0);
   const [paymentDay, setPaymentDay] = useState(state?.paymentDay ?? "");
 
-  function handleCreateNewEarning(event) {
+  function handleEarning(event) {
     event.preventDefault(); // Serve para evitar o reload da tela no submit do formulário
 
     const data = {
@@ -22,12 +22,28 @@ export function FormEarnings() {
       receiptDate: paymentDay,
     };
 
-    const earning = axios.post(`${process.env.API_HOST}/earnings`, data);
+    let api;
+
+    if (state?.id) {
+      api = axios.put(`${process.env.API_HOST}/earnings/${state.id}`, data);
+    } else {
+      api = axios.post(`${process.env.API_HOST}/earnings`, data);
+    }
+
+    api
+      .then((response) => {
+        console.log(response);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
   }
 
   return (
     <div className="form-add-bill">
-      <form onSubmit={handleCreateNewEarning}>
+      <form onSubmit={handleEarning}>
         <h3>Add Earnings</h3>
         <div>
           <label>Description</label>
