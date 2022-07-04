@@ -2,6 +2,7 @@ import "./styles/global.scss";
 import "./styles/footer.scss";
 import "./styles/formAddBills.scss";
 import "./styles/dateFilter.scss";
+import "./styles/exchange.scss";
 
 import { Header } from "./components/Header/header";
 import { Footer } from "./components/Footer";
@@ -19,6 +20,8 @@ const clientId =
   "685508486820-8nvol3gsgc43jj55bqscipokc3vvp8eu.apps.googleusercontent.com";
 
 export function App() {
+  const [user, setUser] = useState(undefined);
+
   useEffect(() => {
     function start() {
       gapi.client.init({
@@ -26,13 +29,12 @@ export function App() {
         scope: "",
         ux_mode: "redirect",
         redirect_uri: "http://localhost:3333/login/google",
+      
       });
     }
 
     gapi.load("client:auth2", start);
   });
-
-  const [user, setUser] = useState(false);
 
   const updateUser = (userData) => {
     setUser(userData);

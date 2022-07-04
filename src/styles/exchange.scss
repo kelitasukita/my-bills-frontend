@@ -1,10 +1,15 @@
-.date-filter {
+.main-overview {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exchange-view {
+  display: flex;
+  align-items: center;
   margin-bottom: -20px;
 
-  input,
-  select {
+  p {
     background: var(--white);
     color: var(--text);
     font-weight: bold;
@@ -16,7 +21,4 @@
     border-radius: 4px;
   }
 
-  *:focus {
-    outline: none;
-  }
 }

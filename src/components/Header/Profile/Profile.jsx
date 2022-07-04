@@ -3,6 +3,7 @@ import { useState } from "react";
 import { GoogleLogout } from "react-google-login";
 
 import "./profile.scss";
+import { gapi } from "gapi-script";
 
 const clientId =
   "685508486820-8nvol3gsgc43jj55bqscipokc3vvp8eu.apps.googleusercontent.com";
@@ -15,6 +16,7 @@ export function Profile(props) {
   };
 
   const handleLogout = () => {
+    gapi.auth.signOut();
     props.updateUser(false);
   };
   return (
