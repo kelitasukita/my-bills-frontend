@@ -14,7 +14,7 @@ export function BillItem(props) {
     } else {
       setClasse("unpaid");
     }
-  });
+  }, []);
 
   function changeStatus() {
     axios

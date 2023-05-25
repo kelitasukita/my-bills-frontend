@@ -9,8 +9,23 @@ export function Overview() {
   const [month, setMonth] = useState(new Date().getMonth());
   const [reais, setReais] = useState(0);
 
+  function exchange() {
+    axios
+      .post("https://api.transferwise.com/v3/quotes/", {
+        targetAmount: 1,
+        sourceCurrency: "EUR",
+        targetCurrency: "BRL",
+        preferredPayIn: "BANK_TRANSFER",
+      })
+      .then((response) => {
+        setReais(response.data.rate.toFixed(2));
+      })
+      .catch((e) => {
+        console.log(e.message);
+      });
+  }
+
   useEffect(() => {
-    
     //console.log(year, month);
     const today = new Date();
 
@@ -28,20 +43,6 @@ export function Overview() {
     exchange();
   }, []);
 
-  function exchange() {
-    axios.post('https://api.transferwise.com/v3/quotes/', {
-        "targetAmount": 1,
-        "sourceCurrency": "EUR",
-        "targetCurrency": "BRL",
-        "preferredPayIn": "BANK_TRANSFER"
-      }).then(response => {
-        setReais(response.data.rate.toFixed(2));
-      }).catch(e => {
-        console.log(e)
-      });
-  }
-
-
   // const cards = [
   //   // {brand: 'Amex', title: 'Amex', factur: 6732.89},
   //   // {brand: 'Visa', title: 'Visa Kelita', factur: 123.89},
@@ -52,61 +53,59 @@ export function Overview() {
 
   return (
     <>
-    <div className="main-overview">
-      <div className="exchange-view">
-        
-        <p>€ 1.00</p>
-        <p>R$ {reais}</p>
-      </div>
-      <div className="date-filter">
-        <select
-          name="month"
-          onChange={(event) => setMonth(event.target.value)}
-          value={month}
+      <div className="main-overview">
+        <div className="exchange-view">
+          <p>€ 1.00</p>
+          <p>R$ {reais}</p>
+        </div>
+        <div className="date-filter">
+          <select
+            name="month"
+            onChange={(event) => setMonth(event.target.value)}
+            value={month}
           >
-          <option value="1">January</option>
-          <option value="2">February</option>
-          <option value="3">March</option>
-          <option value="4">April</option>
-          <option value="5">May</option>
-          <option value="6">June</option>
-          <option value="7">July</option>
-          <option value="8">August</option>
-          <option value="9">September</option>
-          <option value="10">October</option>
-          <option value="11">November</option>
-          <option value="12">December</option>
-        </select>
-        <input
-          type="number"
-          onChange={(event) => setYear(event.target.value)}
-          value={year}
-          min="1900"
-          max="2100"
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+          <input
+            type="number"
+            onChange={(event) => setYear(event.target.value)}
+            value={year}
+            min="1900"
+            max="2100"
           />
-      </div>
+        </div>
       </div>
       <OverviewPanel year={year} month={month} />
-      
+
       <div className="payments">
         <Bills
           endpoint={`/expenses/unpaid?year=${year}&month=${month}`}
           title="Bills to Pay"
-          />
+        />
         <Bills
           endpoint={`/expenses/paid?year=${year}&month=${month}`}
           title="Paid Bills"
-          />
+        />
         <Earnings
           endpoint={`/earnings?year=${year}&month=${month}`}
           title="Earnings"
-          />
+        />
 
         {/* {cards.map((card, index) => {
           return <CardBox key={index} data={card} />;
         })} */}
       </div>
     </>
-    
   );
 }

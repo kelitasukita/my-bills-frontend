@@ -18,6 +18,8 @@ export function Profile(props) {
   const handleLogout = () => {
     gapi.auth.signOut();
     props.updateUser(false);
+
+    location.reload();
   };
   return (
     <div>

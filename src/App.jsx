@@ -23,21 +23,35 @@ export function App() {
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
+    const userSession = sessionStorage.getItem("user");
+
+    if (!user && userSession) {
+      setUser(JSON.parse(userSession));
+    }
+
     function start() {
-      gapi.client.init({
-        clientId: clientId,
-        scope: "",
-        ux_mode: "redirect",
-        redirect_uri: "http://localhost:3333/login/google",
-      
-      });
+      gapi.client.init(
+        {
+          clientId: clientId,
+          scope: "",
+          ux_mode: "redirect",
+          redirect_uri: "http://localhost:3333/login/google",
+        },
+        []
+      );
     }
 
     gapi.load("client:auth2", start);
   });
 
   const updateUser = (userData) => {
+    if (!userData) {
+      sessionStorage.removeItem("user");
+      return;
+    }
+
     setUser(userData);
+    sessionStorage.setItem("user", JSON.stringify(userData));
   };
 
   return (

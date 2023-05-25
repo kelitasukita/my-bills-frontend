@@ -3,6 +3,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { GoogleIcon } from "../../Icons/GoogleIcon";
 import { GoogleLogin } from "react-google-login";
 import { NormalLogin } from "../Login/NormalLogin";
+import axios from "axios";
 
 const clientId =
   "685508486820-8nvol3gsgc43jj55bqscipokc3vvp8eu.apps.googleusercontent.com";
@@ -11,7 +12,11 @@ export function Login(props) {
   const onSuccess = (res) => {
     console.log("LOGIN SUCCESS! JWT: ", res.tokenId);
     console.log("LOGIN SUCCESS! User: ", res.profileObj);
-    props.updateUser(res.profileObj);
+    props.updateUser(res.profileObj); // @todo só atualizar depois do request abaixo
+    axios.post(`${process.env.API_HOST}/login/google`, { tokenId: res.tokenId })
+      .then(response => {
+        console.log('Respondeu! ', response);
+      })
   };
 
   const onFailure = (res) => {
